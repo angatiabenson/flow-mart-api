@@ -86,8 +86,10 @@ Authorization: Bearer {API_KEY}
 
 #### 1. Register a New Account
 
-**URL**: `/register`  
-**Method**: `POST`  
+**URL**: `/register`
+
+**Method**: `POST`
+
 **Description**: Creates a new user account.
 
 **Request Body**:
@@ -118,8 +120,10 @@ Authorization: Bearer {API_KEY}
 
 #### 2. Login
 
-**URL**: `/login`  
-**Method**: `POST`  
+**URL**: `/login`
+
+**Method**: `POST`
+
 **Description**: Authenticates the user and returns an API key.
 
 **Request Body**:
@@ -143,8 +147,10 @@ Authorization: Bearer {API_KEY}
 
 #### 3. Create a Product Category
 
-**URL**: `/categories`  
-**Method**: `POST`  
+**URL**: `/categories`
+
+**Method**: `POST`
+
 **Description**: Creates a new product category. Requires authentication.
 
 **Headers**:
@@ -172,8 +178,10 @@ Authorization: Bearer {API_KEY}
 
 #### 4. Add Products to a Category
 
-**URL**: `/products`  
-**Method**: `POST`  
+**URL**: `/products`
+
+**Method**: `POST`
+
 **Description**: Adds a new product under the specified category. Requires authentication.
 
 **Headers**:
@@ -203,8 +211,10 @@ Authorization: Bearer {API_KEY}
 
 #### 5. View Products by Category
 
-**URL**: `/categories/{category_id}/products`  
-**Method**: `GET`  
+**URL**: `/categories/{category_id}/products`
+
+**Method**: `GET`
+
 **Description**: Retrieves all products under the specified category. Requires authentication.
 
 **Headers**:
@@ -237,7 +247,9 @@ Authorization: Bearer {API_KEY}
 ### 6. Fetch All Categories
 
 **URL**: `/categories`
+
 **Method**: `GET`
+
 **Description**: Retrieves all product categories. Requires authentication.
 
 **Headers**:
@@ -267,7 +279,9 @@ Authorization: Bearer {API_KEY}
 ### 7. Fetch All Products
 
 **URL**: `/products`
+
 **Method**: `GET`
+
 **Description**: Retrieves all products across all categories. Requires authentication.
 
 **Headers**:
