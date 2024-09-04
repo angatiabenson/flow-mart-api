@@ -15,6 +15,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'github_secret' => env('GITHUB_SECRET'),
+    'github_repo_dir' => env('GITHUB_REPO_DIR'),
+    'github_branch' => env('GITHUB_BRANCH'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
