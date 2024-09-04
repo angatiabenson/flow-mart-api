@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('password');
-            $table->string('api_key')->nullable();
             $table->timestamps();
         });
 
