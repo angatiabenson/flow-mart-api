@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Services\GitHubWebhookService;
+use App\Service\GitHubWebhookService;
 use Illuminate\Http\Request;
 
 
