@@ -86,7 +86,7 @@ Authorization: Bearer {API_KEY}
 
 #### 1. Register a New Account
 
-**URL**: `/api/register`  
+**URL**: `/register`  
 **Method**: `POST`  
 **Description**: Creates a new user account.
 
@@ -118,7 +118,7 @@ Authorization: Bearer {API_KEY}
 
 #### 2. Login
 
-**URL**: `/api/login`  
+**URL**: `/login`  
 **Method**: `POST`  
 **Description**: Authenticates the user and returns an API key.
 
@@ -143,7 +143,7 @@ Authorization: Bearer {API_KEY}
 
 #### 3. Create a Product Category
 
-**URL**: `/api/categories`  
+**URL**: `/categories`  
 **Method**: `POST`  
 **Description**: Creates a new product category. Requires authentication.
 
@@ -172,7 +172,7 @@ Authorization: Bearer {API_KEY}
 
 #### 4. Add Products to a Category
 
-**URL**: `/api/products`  
+**URL**: `/products`  
 **Method**: `POST`  
 **Description**: Adds a new product under the specified category. Requires authentication.
 
@@ -203,7 +203,7 @@ Authorization: Bearer {API_KEY}
 
 #### 5. View Products by Category
 
-**URL**: `/api/categories/{category_id}/products`  
+**URL**: `/categories/{category_id}/products`  
 **Method**: `GET`  
 **Description**: Retrieves all products under the specified category. Requires authentication.
 
@@ -236,7 +236,7 @@ Authorization: Bearer {API_KEY}
 
 ### 6. Fetch All Categories
 
-**URL**: `/api/categories`
+**URL**: `/categories`
 **Method**: `GET`
 **Description**: Retrieves all product categories. Requires authentication.
 
@@ -266,7 +266,7 @@ Authorization: Bearer {API_KEY}
 
 ### 7. Fetch All Products
 
-**URL**: `/api/products`
+**URL**: `/products`
 **Method**: `GET`
 **Description**: Retrieves all products across all categories. Requires authentication.
 
@@ -307,6 +307,26 @@ All error responses follow a consistent structure:
     "message": "Error message here"
 }
 ```
+
+Here’s a small section to inform developers about accessing the open API:
+
+---
+
+### Accessing the API
+
+FlowMart API is an open API, and developers can access it using the following base URL:
+
+```
+https://flowmart.banit.co.ke/
+```
+
+All API endpoints described above can be accessed by appending the relevant paths to this base URL. For example, to fetch all product categories, you would use:
+
+```
+GET https://flowmart.banit.co.ke/categories
+```
+
+Ensure to include any necessary authentication tokens, where required, as per the endpoint descriptions.
 
 ## License
 
