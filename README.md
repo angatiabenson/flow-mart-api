@@ -322,10 +322,6 @@ All error responses follow a consistent structure:
 }
 ```
 
-Here’s a small section to inform developers about accessing the open API:
-
----
-
 ### Accessing the API
 
 FlowMart API is an open API, and developers can access it using the following base URL:
