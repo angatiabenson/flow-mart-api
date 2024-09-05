@@ -50,4 +50,29 @@ class CategoryController extends Controller
             'message' => 'Category created successfully.'
         ], 201); // HTTP 201 Created
     }
+
+
+    // Fetch all categories for the authenticated user
+    public function view(Request $request)
+    {
+        // Get authenticated user
+        $userID = $this->getUserID($request);
+
+        if ($userID == null) {
+            return response()->json([
+                'code' => 401,
+                'status' => 'error',
+                'message' => 'Unauthorized action.'
+            ], 401);
+        }
+
+        // Fetch all categories that belong to the user
+        $categories = Category::where('user_id', $userID)->get();
+
+        // Return the categories in the desired format
+        return response()->json([
+            'status' => 'success',
+            'categories' => $categories
+        ], 200);
+    }
 }

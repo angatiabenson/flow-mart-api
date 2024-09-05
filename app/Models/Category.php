@@ -21,4 +21,10 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'user_id'
+    ];
 }
