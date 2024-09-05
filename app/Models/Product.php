@@ -16,4 +16,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'category_id',
+    ];
 }

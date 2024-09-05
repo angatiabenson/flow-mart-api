@@ -12,6 +12,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::middleware(['api.key.auth'])->group(function () {
     Route::post('/categories', [CategoryController::class, 'store']);
     Route::post('/products', [ProductController::class, 'store']);
+    Route::get('/categories/{category_id}/products', [ProductController::class, 'fetchProductsByCategory']);
 });
 
 

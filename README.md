@@ -228,19 +228,17 @@ Authorization: Bearer {API_KEY}
 ```json
 {
     "status": "success",
-    "data": {
-        "category": {
+    "products": [
+        {
             "id": 1,
-            "name": "Electronics"
-        },
-        "products": [
-            {
+            "name": "Smartphone",
+            "quantity": "10 devices",
+            "category": {
                 "id": 1,
-                "name": "Smartphone",
-                "quantity": "10 devices"
+                "name": "Electronics"
             }
-        ]
-    }
+        }
+    ]
 }
 ```
 
