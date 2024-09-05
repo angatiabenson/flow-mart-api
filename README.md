@@ -72,7 +72,7 @@ FlowMart API is a RESTful API designed to help SMEs manage their stock efficient
     php artisan serve
     ```
 
-    The API will be available at `https://flowmart.banit.co.ke/`.
+    The API will be available at `http://localhost:8000`.
 
 ### Authentication
 
