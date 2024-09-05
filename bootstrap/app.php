@@ -20,6 +20,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
     })
     ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (\Illuminate\Auth\AuthenticationException $e, $request) {
+            return response()->json(['message' => 'Not authenticated'], 401);
+        });
+
         $exceptions->respond(function (Response $response, Throwable $exception) {
 
             $statusCode = $response->getStatusCode();
