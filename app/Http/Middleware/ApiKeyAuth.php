@@ -20,7 +20,7 @@ class ApiKeyAuth
             return response()->json([
                 'code' => 401,
                 'status' => 'error',
-                'message' => 'Unauthorized access. Authorization required.'
+                'message' => 'Authorization required.'
             ], 401);
         }
 

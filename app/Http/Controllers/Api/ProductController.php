@@ -97,21 +97,7 @@ class ProductController extends Controller
         // Get all products for the category
         $products = Product::where('category_id', $category_id)->get();
 
-        // Format the response to include category details within each product
-        $formattedProducts = $products->map(function ($product) {
-            return [
-                'id' => $product->id,
-                'name' => $product->name,
-                'quantity' => $product->quantity,
-                'category' => $product->category
-            ];
-        });
-
-        // Return the formatted response
-        return response()->json([
-            'status' => 'success',
-            'products' => $formattedProducts
-        ], 200);
+        return $this->processProductsResponse($products);
     }
 
     // Fetch all products for the authenticated user
@@ -133,7 +119,13 @@ class ProductController extends Controller
             $query->where('user_id', $userID);
         })->with('category')->get();
 
-        // Format and return the products with their associated category information
+        return $this->processProductsResponse($products);
+    }
+
+
+    private function processProductsResponse($products)
+    {
+        // Format the response to include category details within each product
         $formattedProducts = $products->map(function ($product) {
             return [
                 'id' => $product->id,
@@ -143,7 +135,7 @@ class ProductController extends Controller
             ];
         });
 
-        // Return the response
+        // Return the formatted response
         return response()->json([
             'status' => 'success',
             'products' => $formattedProducts

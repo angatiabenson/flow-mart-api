@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 abstract class Controller
 {
+
+    /**
+     * Get the authenticated user ID from the request.
+     *
+     * @param Request $request
+     * @return int|null
+     */
     public function getUserID(Request $request)
     {
         // Get the token from the Authorization header
