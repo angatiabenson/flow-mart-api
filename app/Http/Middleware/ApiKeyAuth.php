@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApiKeyAuth
@@ -15,11 +16,11 @@ class ApiKeyAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->bearerToken() || !$request->user()->tokens()->where('token', $request->bearerToken())->exists()) {
+        if (!Auth::guard('sanctum')->check()) {
             return response()->json([
                 'code' => 401,
                 'status' => 'error',
-                'message' => 'Unauthorized action.'
+                'message' => 'Unauthorized access. Authorization required.'
             ], 401);
         }
 

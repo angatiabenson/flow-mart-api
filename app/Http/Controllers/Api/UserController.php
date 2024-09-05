@@ -60,7 +60,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             // If authentication passes, generate API key (token)
-            $user = Auth::user();
+            $user = User::where('email', $credentials['email'])->first();
             $apiKey = $user->createToken('api_token')->plainTextToken;
 
             // Return success response

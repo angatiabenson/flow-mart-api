@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
-Route::middleware(['auth:sanctum', 'api.key.auth'])->group(function () {
+Route::middleware(['api.key.auth'])->group(function () {
     Route::post('/categories', [CategoryController::class, 'store']);
 });
 
