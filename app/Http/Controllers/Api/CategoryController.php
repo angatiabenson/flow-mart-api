@@ -28,12 +28,20 @@ class CategoryController extends Controller
         }
 
         // Get authenticated user
-        $user = Auth::user();
+        $userID = $this->getUserID($request);
+
+        if ($userID == null) {
+            return response()->json([
+                'code' => 401,
+                'status' => 'error',
+                'message' => 'Unauthorized action.'
+            ], 401);
+        }
 
         // Create new category
         Category::create([
             'name' => $request->name,
-            'user_id' => $user->id,
+            'user_id' => $userID,
         ]);
 
         // Return success response
