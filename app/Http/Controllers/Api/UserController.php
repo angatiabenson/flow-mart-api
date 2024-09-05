@@ -78,4 +78,42 @@ class UserController extends Controller
             'message' => 'Invalid credentials.',
         ], 401);
     }
+
+    // Return the authenticated user's profile details
+    public function profile(Request $request)
+    {
+        // Get authenticated user
+        $userID = $this->getUserID($request);
+
+        if (!$userID) {
+            return response()->json([
+                'code' => 401,
+                'status' => 'error',
+                'message' => 'Unauthorized action.'
+            ], 401);
+        }
+
+        // Get the user's details
+        $user = User::find($userID);
+
+        if (!$user) {
+            return response()->json([
+                'code' => 404,
+                'status' => 'error',
+                'message' => 'User not found.'
+            ], 404);
+        }
+
+        // Return the user details in the desired format
+        return response()->json([
+            'status' => 'success',
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'created_at' => $user->created_at->toDateTimeString(),
+            ]
+        ], 200);
+    }
 }

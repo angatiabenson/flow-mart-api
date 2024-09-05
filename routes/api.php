@@ -17,6 +17,7 @@ Route::middleware(['api.key.auth'])->group(function () {
     Route::get('/categories/{category_id}/products', [ProductController::class, 'fetchProductsByCategory']);
     Route::get('/products', [ProductController::class, 'view']);
 
+    Route::get('/profile', [UserController::class, 'profile']);
 });
 
 

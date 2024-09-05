@@ -308,6 +308,35 @@ Authorization: Bearer {API_KEY}
 }
 ```
 
+#### 8. View Profile
+
+**URL**: `/profile`
+
+**Method**: `GET`
+
+**Description**: Retrieves the authenticated user's account details. Requires authentication.
+
+**Headers**:
+
+```http
+Authorization: Bearer {API_KEY}
+```
+
+**Response**:
+
+```json
+{
+    "status": "success",
+    "user": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "0712345678",
+        "created_at": "2024-09-05 12:30:45"
+    }
+}
+```
+
 ## Error Handling
 
 All error responses follow a consistent structure:
