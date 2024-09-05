@@ -70,7 +70,6 @@ class ProductController extends Controller
     // Get all products by category
     public function fetchProductsByCategory(Request $request, $category_id)
     {
-        // Check if the category belongs to the authenticated user
         // Get authenticated user
         $userID = $this->getUserID($request);
 
@@ -99,19 +98,52 @@ class ProductController extends Controller
         $products = Product::where('category_id', $category_id)->get();
 
         // Format the response to include category details within each product
-        $formattedProducts = $products->map(function ($product) use ($category) {
+        $formattedProducts = $products->map(function ($product) {
             return [
                 'id' => $product->id,
                 'name' => $product->name,
                 'quantity' => $product->quantity,
-                'category' => [
-                    'id' => $category->id,
-                    'name' => $category->name
-                ]
+                'category' => $product->category
             ];
         });
 
         // Return the formatted response
+        return response()->json([
+            'status' => 'success',
+            'products' => $formattedProducts
+        ], 200);
+    }
+
+    // Fetch all products for the authenticated user
+    public function view(Request $request)
+    {
+        // Get authenticated user
+        $userID = $this->getUserID($request);
+
+        if (!$userID) {
+            return response()->json([
+                'code' => 401,
+                'status' => 'error',
+                'message' => 'Unauthorized action.'
+            ], 401);
+        }
+
+        // Fetch all products that belong to the user's categories
+        $products = Product::whereHas('category', function ($query) use ($userID) {
+            $query->where('user_id', $userID);
+        })->with('category')->get();
+
+        // Format and return the products with their associated category information
+        $formattedProducts = $products->map(function ($product) {
+            return [
+                'id' => $product->id,
+                'name' => $product->name,
+                'quantity' => $product->quantity,
+                'category' => $product->category
+            ];
+        });
+
+        // Return the response
         return response()->json([
             'status' => 'success',
             'products' => $formattedProducts
