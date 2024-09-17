@@ -141,7 +141,13 @@ Authorization: Bearer {API_KEY}
 {
     "status": "success",
     "message": "Login successful.",
-    "api_key": "your-generated-api-key"
+    "api_key": "your-generated-api-key",
+    "user": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "0712345678"
+    }
 }
 ```
 

@@ -43,12 +43,7 @@ class UserController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Account created successfully.',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-            ],
+            'user' => $user,
         ], 201); // HTTP 201 Created
     }
 
@@ -58,7 +53,7 @@ class UserController extends Controller
         // Validate the request data
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(credentials: $credentials)) {
             // If authentication passes, generate API key (token)
             $user = User::where('email', $credentials['email'])->first();
             $apiKey = $user->createToken('api_token')->plainTextToken;
@@ -68,6 +63,7 @@ class UserController extends Controller
                 'status' => 'success',
                 'message' => 'Login successful.',
                 'api_key' => $apiKey,
+                'user' => $user
             ], 200);
         }
 
