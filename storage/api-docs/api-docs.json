@@ -22,7 +22,7 @@
                 ],
                 "summary": "Retrieve all product categories for the authenticated user",
                 "description": "Returns a list of all product categories created by the authenticated user.",
-                "operationId": "acc140a7189d9ef556fdd581e3cbc4ef",
+                "operationId": "02b53cc5730d436470b748d2713d7cc0",
                 "responses": {
                     "200": {
                         "description": "Successfully retrieved categories",
@@ -83,7 +83,7 @@
                 ],
                 "summary": "Create a new product category",
                 "description": "Allows authenticated users to create a new product category by providing a unique name.",
-                "operationId": "c86cd7a85ad06a4fe905bfab62146952",
+                "operationId": "c6fb8aeaa6180c927b4b56f4be5d9f5a",
                 "requestBody": {
                     "description": "Category creation data",
                     "required": true,
@@ -179,7 +179,7 @@
                 ],
                 "summary": "Retrieve all products for the authenticated user",
                 "description": "Returns a list of all products across all categories owned by the authenticated user.",
-                "operationId": "f8c699e4b479708c11bb641cdd3ee12c",
+                "operationId": "829bb3c6a61760649b580b11d363a6d4",
                 "responses": {
                     "200": {
                         "description": "Successfully retrieved products",
@@ -240,7 +240,7 @@
                 ],
                 "summary": "Create a new product under a specific category",
                 "description": "Allows authenticated users to create a new product within a specified category by providing the category ID, product name, and quantity.",
-                "operationId": "eddf8c7847239ddc1040daadd814e21b",
+                "operationId": "8a77d301eeadaa84c47c65847d1fd547",
                 "requestBody": {
                     "description": "Product creation data",
                     "required": true,
@@ -360,7 +360,7 @@
                 ],
                 "summary": "Retrieve all products under a specific category",
                 "description": "Returns a list of all products within the specified category for the authenticated user.",
-                "operationId": "66a7f656b5d2f5d29e66394dc43c6e4d",
+                "operationId": "60366b13fff16a6c76fba44a94f2302e",
                 "parameters": [
                     {
                         "name": "category_id",
@@ -459,7 +459,7 @@
                 ],
                 "summary": "Register a new user",
                 "description": "Creates a new user account with the provided information.",
-                "operationId": "7803685ce02ef1ad1d7b190a14c06284",
+                "operationId": "62b6a3cd576ae834611589c00627a343",
                 "requestBody": {
                     "description": "User registration data",
                     "required": true,
@@ -529,7 +529,7 @@
                 ],
                 "summary": "Login user",
                 "description": "Authenticates user and returns an API key.",
-                "operationId": "802efa828bed5cff912616a7ff48e617",
+                "operationId": "53808a3cebb0262fe75b106e25cf4450",
                 "requestBody": {
                     "description": "User login credentials",
                     "required": true,
@@ -603,7 +603,7 @@
                 ],
                 "summary": "Get user profile",
                 "description": "Returns the authenticated user's profile details.",
-                "operationId": "1a4b846fd60226473a8cb32221eea509",
+                "operationId": "71044ec730dcd284221325854bc6facc",
                 "responses": {
                     "200": {
                         "description": "User profile details",

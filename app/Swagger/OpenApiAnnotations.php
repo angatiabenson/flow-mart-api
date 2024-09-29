@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Swagger;
 
 /**
  * @OA\Info(
@@ -23,7 +23,7 @@ namespace App\Http\Controllers\Api;
  *      description="Enter your Bearer token in the format **Bearer <token>**"
  * )
  */
-class OpenApi
+class OpenApiAnnotations
 {
     // This class is intentionally left blank.
     // It serves as a container for OpenAPI annotations.
