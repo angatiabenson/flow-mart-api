@@ -160,7 +160,7 @@ class UserController extends Controller
      *             @OA\Property(property="status", type="string", example="success"),
      *             @OA\Property(
      *                 property="user",
-     *                 ref="#/components/schemas/UserProfile"
+     *                 ref="#/components/schemas/User"
      *             )
      *         )
      *     ),

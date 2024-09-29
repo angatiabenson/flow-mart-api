@@ -616,7 +616,7 @@
                                             "example": "success"
                                         },
                                         "user": {
-                                            "$ref": "#/components/schemas/UserProfile"
+                                            "$ref": "#/components/schemas/User"
                                         }
                                     },
                                     "type": "object"
@@ -687,10 +687,7 @@
                 "title": "Category",
                 "required": [
                     "id",
-                    "name",
-                    "user_id",
-                    "created_at",
-                    "updated_at"
+                    "name"
                 ],
                 "properties": {
                     "id": {
@@ -702,23 +699,6 @@
                         "description": "Name of the product category",
                         "type": "string",
                         "example": "Electronics"
-                    },
-                    "user_id": {
-                        "description": "ID of the user who created the category",
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "created_at": {
-                        "description": "Timestamp when the category was created",
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-09-29T12:34:56Z"
-                    },
-                    "updated_at": {
-                        "description": "Timestamp when the category was last updated",
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-09-29T12:34:56Z"
                     }
                 },
                 "type": "object"
@@ -791,9 +771,7 @@
                     "id",
                     "name",
                     "quantity",
-                    "category_id",
-                    "created_at",
-                    "updated_at"
+                    "category"
                 ],
                 "properties": {
                     "id": {
@@ -811,25 +789,8 @@
                         "type": "string",
                         "example": "50"
                     },
-                    "category_id": {
-                        "description": "ID of the category to which the product belongs",
-                        "type": "integer",
-                        "example": 1
-                    },
                     "category": {
                         "$ref": "#/components/schemas/Category"
-                    },
-                    "created_at": {
-                        "description": "Timestamp when the product was created",
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-09-29T12:34:56Z"
-                    },
-                    "updated_at": {
-                        "description": "Timestamp when the product was last updated",
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-09-29T12:34:56Z"
                     }
                 },
                 "type": "object"
@@ -873,45 +834,6 @@
             },
             "User": {
                 "title": "User",
-                "required": [
-                    "id",
-                    "name",
-                    "email",
-                    "phone",
-                    "created_at"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "Unique identifier for the user",
-                        "type": "integer",
-                        "example": 1
-                    },
-                    "name": {
-                        "description": "User's full name",
-                        "type": "string",
-                        "example": "John Doe"
-                    },
-                    "email": {
-                        "description": "User's email address",
-                        "type": "string",
-                        "format": "email",
-                        "example": "johndoe@example.com"
-                    },
-                    "phone": {
-                        "description": "User's phone number",
-                        "type": "string",
-                        "example": "+1234567890"
-                    },
-                    "created_at": {
-                        "description": "Timestamp when the user was created",
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2023-09-29T12:34:56Z"
-                    }
-                },
-                "type": "object"
-            },
-            "UserProfile": {
                 "required": [
                     "id",
                     "name",

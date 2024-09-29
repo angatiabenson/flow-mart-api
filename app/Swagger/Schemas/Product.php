@@ -7,7 +7,7 @@ namespace App\Swagger\Schemas;
  *     schema="Product",
  *     type="object",
  *     title="Product",
- *     required={"id", "name", "quantity", "category_id", "created_at", "updated_at"},
+ *     required={"id", "name", "quantity", "category",},
  *     @OA\Property(
  *         property="id",
  *         type="integer",
@@ -27,29 +27,9 @@ namespace App\Swagger\Schemas;
  *         example="50"
  *     ),
  *     @OA\Property(
- *         property="category_id",
- *         type="integer",
- *         description="ID of the category to which the product belongs",
- *         example=1
- *     ),
- *     @OA\Property(
  *         property="category",
  *         ref="#/components/schemas/Category"
  *     ),
- *     @OA\Property(
- *         property="created_at",
- *         type="string",
- *         format="date-time",
- *         description="Timestamp when the product was created",
- *         example="2023-09-29T12:34:56Z"
- *     ),
- *     @OA\Property(
- *         property="updated_at",
- *         type="string",
- *         format="date-time",
- *         description="Timestamp when the product was last updated",
- *         example="2023-09-29T12:34:56Z"
- *     )
  * )
  */
 class Product
