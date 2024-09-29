@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'api.key.auth' => \App\Http\Middleware\ApiKeyAuth::class,
+            'token.expiration' => \App\Http\Middleware\CheckTokenExpiration::class,
         ]);
 
     })

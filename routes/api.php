@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
-Route::middleware(['api.key.auth'])->group(function () {
+Route::middleware(['api.key.auth', , 'token.expiration'])->group(function () {
     Route::post('/categories', [CategoryController::class, 'store']);
     Route::get('/categories', [CategoryController::class, 'view']);
 

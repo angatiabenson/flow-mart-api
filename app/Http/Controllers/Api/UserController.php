@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -54,8 +55,13 @@ class UserController extends Controller
         if (Auth::attempt(credentials: $credentials)) {
             // If authentication passes, generate API key (token)
             $user = User::where('email', $credentials['email'])->first();
+
+
             $user->tokens()->delete();
-            $apiKey = $user->createToken('api_token')->plainTextToken;
+            $apiKey = $user->createToken('api_token')->accessToken;
+            $user->currentAccessToken()->update([
+                'expires_at' => Carbon::now()->addDays(30), // Token expires in 30 days
+            ]);
 
             // Return success response
             return response()->json([
