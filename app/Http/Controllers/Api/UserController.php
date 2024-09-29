@@ -57,17 +57,24 @@ class UserController extends Controller
             $user = User::where('email', $credentials['email'])->first();
 
 
+            // Revoke all existing tokens for the user
             $user->tokens()->delete();
-            $apiKey = $user->createToken('api_token')->accessToken;
-            $user->currentAccessToken()->update([
-                'expires_at' => Carbon::now()->addDays(30), // Token expires in 30 days
-            ]);
+
+            // Create a new token
+            $tokenResult = $user->createToken('api_token');
+
+            // Access the PersonalAccessToken model
+            $token = $tokenResult->accessToken;
+
+            // Update the expires_at field
+            $token->expires_at = Carbon::now()->addDays(30);
+            $token->save();
 
             // Return success response
             return response()->json([
                 'status' => 'success',
                 'message' => 'Login successful.',
-                'api_key' => $apiKey,
+                'api_key' => $token,
                 'user' => $user
             ], 200);
         }
