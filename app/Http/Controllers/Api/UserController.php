@@ -54,6 +54,7 @@ class UserController extends Controller
         if (Auth::attempt(credentials: $credentials)) {
             // If authentication passes, generate API key (token)
             $user = User::where('email', $credentials['email'])->first();
+            $user->tokens()->delete();
             $apiKey = $user->createToken('api_token')->plainTextToken;
 
             // Return success response
