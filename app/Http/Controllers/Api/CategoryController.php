@@ -20,7 +20,7 @@ class CategoryController extends Controller
      * Store a new product category.
      *
      * @OA\Post(
-     *     path="/api/categories",
+     *     path="/categories",
      *     tags={"Categories"},
      *     summary="Create a new product category",
      *     description="Allows authenticated users to create a new product category by providing a unique name.",
@@ -103,7 +103,7 @@ class CategoryController extends Controller
      * Fetch all categories for the authenticated user.
      *
      * @OA\Get(
-     *     path="/api/categories",
+     *     path="/categories",
      *     tags={"Categories"},
      *     summary="Retrieve all product categories for the authenticated user",
      *     description="Returns a list of all product categories created by the authenticated user.",
