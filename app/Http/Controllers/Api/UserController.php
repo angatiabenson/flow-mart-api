@@ -70,11 +70,14 @@ class UserController extends Controller
             $token->expires_at = Carbon::now()->addDays(30);
             $token->save();
 
+            // Retrieve the plain text token
+            $plainTextToken = $tokenResult->plainTextToken;
+
             // Return success response
             return response()->json([
                 'status' => 'success',
                 'message' => 'Login successful.',
-                'api_key' => $token,
+                'api_key' => $plainTextToken,
                 'user' => $user
             ], 200);
         }
