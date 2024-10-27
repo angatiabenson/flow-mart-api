@@ -13,6 +13,8 @@ Route::middleware(['api.key.auth'])->group(function () {
     Route::controller(CategoryController::class)->group(function () {
         Route::post('/categories', 'store');
         Route::get('/categories', 'view');
+        Route::put('/categories/{id}', 'update');
+        Route::delete('/categories/{id}', 'delete');
     });
 
     Route::controller(ProductController::class)->group(function () {
