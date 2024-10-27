@@ -10,14 +10,20 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
 Route::middleware(['api.key.auth'])->group(function () {
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::get('/categories', [CategoryController::class, 'view']);
+    Route::controller(CategoryController::class)->group(function () {
+        Route::post('/categories', 'store');
+        Route::get('/categories', 'view');
+    });
 
-    Route::post('/products', [ProductController::class, 'store']);
-    Route::get('/categories/{category_id}/products', [ProductController::class, 'fetchProductsByCategory']);
-    Route::get('/products', [ProductController::class, 'view']);
+    Route::controller(ProductController::class)->group(function () {
+        Route::post('/products', 'store');
+        Route::get('/categories/{category_id}/products', 'fetchProductsByCategory');
+        Route::get('/products', 'view');
+    });
 
-    Route::get('/profile', [UserController::class, 'profile']);
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/profile', 'profile');
+    });
 });
 
 
