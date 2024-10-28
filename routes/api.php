@@ -21,6 +21,8 @@ Route::middleware(['api.key.auth'])->group(function () {
         Route::post('/products', 'store');
         Route::get('/categories/{category_id}/products', 'fetchProductsByCategory');
         Route::get('/products', 'view');
+        Route::put('/products/{id}', 'update');
+        Route::delete('/products/{id}', 'delete');
     });
 
     Route::controller(UserController::class)->group(function () {
