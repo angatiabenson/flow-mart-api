@@ -1008,14 +1008,14 @@
                 ]
             }
         },
-        "/api/register": {
+        "/register": {
             "post": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Register a new user",
                 "description": "Allows new users to create an account by providing name, email, phone, and password.",
-                "operationId": "c4321b31527dbf71d2c1b47cda2f2124",
+                "operationId": "62b6a3cd576ae834611589c00627a343",
                 "requestBody": {
                     "description": "User registration data",
                     "required": true,
@@ -1078,14 +1078,14 @@
                 }
             }
         },
-        "/api/login": {
+        "/login": {
             "post": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Login a user",
                 "description": "Authenticates a user using email and password and returns an API token.",
-                "operationId": "802ea2340c64f1843823a998d6536f7d",
+                "operationId": "53808a3cebb0262fe75b106e25cf4450",
                 "requestBody": {
                     "description": "User login credentials",
                     "required": true,
@@ -1164,14 +1164,14 @@
                 }
             }
         },
-        "/api/user": {
+        "/user": {
             "get": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Get authenticated user's profile",
                 "description": "Returns the profile details of the authenticated user.",
-                "operationId": "f50f54ca87932be3a0cc47aabea04645",
+                "operationId": "68a769544666c6fe3eaaee5c627fe629",
                 "responses": {
                     "200": {
                         "description": "User profile retrieved successfully",
@@ -1253,7 +1253,7 @@
                 ],
                 "summary": "Update authenticated user's profile",
                 "description": "Allows authenticated users to update their profile information, including name, email, phone, and password.",
-                "operationId": "a88d2ef5434dc937abddfe81167c3500",
+                "operationId": "ba41aebe72f3d9087b7993071edbc0e7",
                 "requestBody": {
                     "description": "User profile update data",
                     "required": true,
@@ -1398,7 +1398,7 @@
                 ],
                 "summary": "Delete authenticated user's account",
                 "description": "Allows authenticated users to delete their account.",
-                "operationId": "e25727bf8256066a9eb46c0a2f66b897",
+                "operationId": "a12aeef848dfe8dba4ce48552e3176f8",
                 "responses": {
                     "200": {
                         "description": "Account deleted successfully",

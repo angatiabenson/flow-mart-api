@@ -14,7 +14,7 @@ class UserControllerAnnotations
      * Register a new user.
      *
      * @OA\Post(
-     *     path="/api/register",
+     *     path="/register",
      *     tags={"Users"},
      *     summary="Register a new user",
      *     description="Allows new users to create an account by providing name, email, phone, and password.",
@@ -52,7 +52,7 @@ class UserControllerAnnotations
      * Login a user and generate an API token.
      *
      * @OA\Post(
-     *     path="/api/login",
+     *     path="/login",
      *     tags={"Users"},
      *     summary="Login a user",
      *     description="Authenticates a user using email and password and returns an API token.",
@@ -94,7 +94,7 @@ class UserControllerAnnotations
      * Retrieve the authenticated user's profile.
      *
      * @OA\Get(
-     *     path="/api/user",
+     *     path="/user",
      *     tags={"Users"},
      *     summary="Get authenticated user's profile",
      *     description="Returns the profile details of the authenticated user.",
@@ -139,7 +139,7 @@ class UserControllerAnnotations
      * Update the authenticated user's profile.
      *
      * @OA\Put(
-     *     path="/api/user",
+     *     path="/user",
      *     tags={"Users"},
      *     summary="Update authenticated user's profile",
      *     description="Allows authenticated users to update their profile information, including name, email, phone, and password.",
@@ -208,7 +208,7 @@ class UserControllerAnnotations
      * Delete the authenticated user's account.
      *
      * @OA\Delete(
-     *     path="/api/user",
+     *     path="/user",
      *     tags={"Users"},
      *     summary="Delete authenticated user's account",
      *     description="Allows authenticated users to delete their account.",
