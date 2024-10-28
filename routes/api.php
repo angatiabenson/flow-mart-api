@@ -26,7 +26,9 @@ Route::middleware(['api.key.auth'])->group(function () {
     });
 
     Route::controller(UserController::class)->group(function () {
-        Route::get('/profile', 'profile');
+        Route::get('/user', 'profile');
+        Route::put('/user', 'update');
+        Route::delete('/user', 'delete');
     });
 });
 

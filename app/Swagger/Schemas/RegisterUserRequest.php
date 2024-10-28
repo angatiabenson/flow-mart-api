@@ -4,7 +4,7 @@ namespace App\Swagger\Schemas;
 
 /**
  * @OA\Schema(
- *     schema="RegisterRequest",
+ *     schema="RegisterUserRequest",
  *     type="object",
  *     required={"name", "email", "phone", "password"},
  *     @OA\Property(
@@ -39,7 +39,7 @@ namespace App\Swagger\Schemas;
  *     )
  * )
  */
-class RegisterRequest
+class RegisterUserRequest
 {
     // This class is intentionally left blank.
     // It serves as a container for the RegisterRequest schema.

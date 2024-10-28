@@ -1008,21 +1008,21 @@
                 ]
             }
         },
-        "/register": {
+        "/api/register": {
             "post": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Register a new user",
-                "description": "Creates a new user account with the provided information.",
-                "operationId": "62b6a3cd576ae834611589c00627a343",
+                "description": "Allows new users to create an account by providing name, email, phone, and password.",
+                "operationId": "c4321b31527dbf71d2c1b47cda2f2124",
                 "requestBody": {
                     "description": "User registration data",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/RegisterRequest"
+                                "$ref": "#/components/schemas/RegisterUserRequest"
                             }
                         }
                     }
@@ -1078,21 +1078,33 @@
                 }
             }
         },
-        "/login": {
+        "/api/login": {
             "post": {
                 "tags": [
                     "Users"
                 ],
-                "summary": "Login user",
-                "description": "Authenticates user and returns an API key.",
-                "operationId": "53808a3cebb0262fe75b106e25cf4450",
+                "summary": "Login a user",
+                "description": "Authenticates a user using email and password and returns an API token.",
+                "operationId": "802ea2340c64f1843823a998d6536f7d",
                 "requestBody": {
                     "description": "User login credentials",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LoginRequest"
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }
@@ -1114,7 +1126,7 @@
                                         },
                                         "api_key": {
                                             "type": "string",
-                                            "example": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                                            "example": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..."
                                         },
                                         "user": {
                                             "$ref": "#/components/schemas/User"
@@ -1152,17 +1164,17 @@
                 }
             }
         },
-        "/profile": {
+        "/api/user": {
             "get": {
                 "tags": [
                     "Users"
                 ],
-                "summary": "Get user profile",
-                "description": "Returns the authenticated user's profile details.",
-                "operationId": "71044ec730dcd284221325854bc6facc",
+                "summary": "Get authenticated user's profile",
+                "description": "Returns the profile details of the authenticated user.",
+                "operationId": "f50f54ca87932be3a0cc47aabea04645",
                 "responses": {
                     "200": {
-                        "description": "User profile details",
+                        "description": "User profile retrieved successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1197,6 +1209,258 @@
                                         "message": {
                                             "type": "string",
                                             "example": "Unauthorized action."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update authenticated user's profile",
+                "description": "Allows authenticated users to update their profile information, including name, email, phone, and password.",
+                "operationId": "a88d2ef5434dc937abddfe81167c3500",
+                "requestBody": {
+                    "description": "User profile update data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateUserRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Profile updated successfully."
+                                        },
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The email has already been taken."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized action."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 403
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden. You do not have permission to update this user."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete authenticated user's account",
+                "description": "Allows authenticated users to delete their account.",
+                "operationId": "e25727bf8256066a9eb46c0a2f66b897",
+                "responses": {
+                    "200": {
+                        "description": "Account deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Account deleted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized action."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 403
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden. You do not have permission to delete this user."
                                         }
                                     },
                                     "type": "object"
@@ -1351,7 +1615,7 @@
                 },
                 "type": "object"
             },
-            "RegisterRequest": {
+            "RegisterUserRequest": {
                 "required": [
                     "name",
                     "email",
@@ -1421,6 +1685,33 @@
                         "description": "Updated quantity of the product",
                         "type": "string",
                         "example": "150"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateUserRequest": {
+                "properties": {
+                    "name": {
+                        "description": "Name of the user",
+                        "type": "string",
+                        "example": "Jane Doe"
+                    },
+                    "email": {
+                        "description": "Email address of the user",
+                        "type": "string",
+                        "format": "email",
+                        "example": "jane.doe@example.com"
+                    },
+                    "phone": {
+                        "description": "Phone number of the user",
+                        "type": "string",
+                        "example": "0987654321"
+                    },
+                    "password": {
+                        "description": "New password for the account",
+                        "type": "string",
+                        "format": "password",
+                        "example": "newpassword123"
                     }
                 },
                 "type": "object"
