@@ -192,24 +192,25 @@ class UserController extends Controller
         }
 
         // Update the user's name if provided
-        if ($request->has('name')) {
-            $user->name = $request->name;
+        if ($request->filled('name')) {
+            $user->name = $request->input('name');
         }
 
         // Update the user's email if provided
-        if ($request->has('email')) {
-            $user->email = $request->email;
+        if ($request->filled('email')) {
+            $user->email = $request->input('email');
         }
 
         // Update the user's phone if provided
-        if ($request->has('phone')) {
-            $user->phone = $request->phone;
+        if ($request->filled('phone')) {
+            $user->phone = $request->input('phone');
         }
 
         // Update the user's password if provided
-        if ($request->has('password')) {
-            $user->password = Hash::make($request->password);
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
         }
+
 
         // Save the updated user
         $user->save();
