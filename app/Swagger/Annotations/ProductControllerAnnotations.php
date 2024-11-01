@@ -29,7 +29,11 @@ class ProductControllerAnnotations
      *         description="Product created successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Product added successfully.")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Product added successfully.")
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -65,7 +69,6 @@ class ProductControllerAnnotations
     {
     }
 
-
     /**
      * Get all products by category.
      *
@@ -91,9 +94,13 @@ class ProductControllerAnnotations
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
      *             @OA\Property(
-     *                 property="products",
-     *                 type="array",
-     *                 @OA\Items(ref="#/components/schemas/Product")
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(
+     *                     property="products",
+     *                     type="array",
+     *                     @OA\Items(ref="#/components/schemas/Product")
+     *                 )
      *             )
      *         )
      *     ),
@@ -136,9 +143,13 @@ class ProductControllerAnnotations
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
      *             @OA\Property(
-     *                 property="products",
-     *                 type="array",
-     *                 @OA\Items(ref="#/components/schemas/Product")
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(
+     *                     property="products",
+     *                     type="array",
+     *                     @OA\Items(ref="#/components/schemas/Product")
+     *                 )
      *             )
      *         )
      *     ),
@@ -153,10 +164,8 @@ class ProductControllerAnnotations
      *     )
      * )
      */
-
     public function view()
     {
-
     }
 
     /**
@@ -188,8 +197,12 @@ class ProductControllerAnnotations
      *         description="Product updated successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Product updated successfully."),
-     *             @OA\Property(property="product", ref="#/components/schemas/Product")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Product updated successfully."),
+     *                 @OA\Property(property="product", ref="#/components/schemas/Product")
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -258,7 +271,11 @@ class ProductControllerAnnotations
      *         description="Product deleted successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Product deleted successfully.")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Product deleted successfully.")
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -293,5 +310,4 @@ class ProductControllerAnnotations
     public function delete()
     {
     }
-
 }

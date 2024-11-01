@@ -28,8 +28,12 @@ class UserControllerAnnotations
      *         description="Account created successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Account created successfully."),
-     *             @OA\Property(property="user", ref="#/components/schemas/User")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Account created successfully."),
+     *                 @OA\Property(property="user", ref="#/components/schemas/User")
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -69,9 +73,13 @@ class UserControllerAnnotations
      *         description="Login successful",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Login successful."),
-     *             @OA\Property(property="api_key", type="string", example="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..."),
-     *             @OA\Property(property="user", ref="#/components/schemas/User")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Login successful."),
+     *                 @OA\Property(property="api_key", type="string", example="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..."),
+     *                 @OA\Property(property="user", ref="#/components/schemas/User")
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -105,8 +113,12 @@ class UserControllerAnnotations
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
      *             @OA\Property(
-     *                 property="user",
-     *                 ref="#/components/schemas/User"
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(
+     *                     property="user",
+     *                     ref="#/components/schemas/User"
+     *                 )
      *             )
      *         )
      *     ),
@@ -154,10 +166,14 @@ class UserControllerAnnotations
      *         description="Profile updated successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Profile updated successfully."),
      *             @OA\Property(
-     *                 property="user",
-     *                 ref="#/components/schemas/User"
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Profile updated successfully."),
+     *                 @OA\Property(
+     *                     property="user",
+     *                     ref="#/components/schemas/User"
+     *                 )
      *             )
      *         )
      *     ),
@@ -218,7 +234,11 @@ class UserControllerAnnotations
      *         description="Account deleted successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Account deleted successfully.")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Account deleted successfully.")
+     *             )
      *         )
      *     ),
      *     @OA\Response(

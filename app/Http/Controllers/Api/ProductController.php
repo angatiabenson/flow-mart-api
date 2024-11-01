@@ -68,7 +68,9 @@ class ProductController extends Controller
         // Return success response
         return response()->json([
             'status' => 'success',
-            'message' => 'Product added successfully.',
+            'data' => [
+                'message' => 'Product added successfully.'
+            ]
         ], 201);
     }
 
@@ -228,8 +230,10 @@ class ProductController extends Controller
         // Return success response with updated product data
         return response()->json([
             'status' => 'success',
-            'message' => 'Product updated successfully.',
-            'product' => $product->load('category'),
+            'data' => [
+                'message' => 'Product updated successfully.',
+                'product' => $product->load('category'),
+            ]
         ], 200);
     }
 
@@ -280,7 +284,9 @@ class ProductController extends Controller
         // Return success response
         return response()->json([
             'status' => 'success',
-            'message' => 'Product deleted successfully.',
+            'data' => [
+                'message' => 'Product deleted successfully.'
+            ]
         ], 200);
     }
 
@@ -306,7 +312,9 @@ class ProductController extends Controller
         // Return the formatted response
         return response()->json([
             'status' => 'success',
-            'products' => $formattedProducts
+            'data' => [
+                'products' => $formattedProducts
+            ]
         ], 200);
     }
 }

@@ -34,11 +34,16 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "categories": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/components/schemas/Category"
-                                            }
+                                        "data": {
+                                            "properties": {
+                                                "categories": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Category"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -106,9 +111,14 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Category created successfully."
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Category created successfully."
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -214,12 +224,17 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Category updated successfully."
-                                        },
-                                        "category": {
-                                            "$ref": "#/components/schemas/Category"
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Category updated successfully."
+                                                },
+                                                "category": {
+                                                    "$ref": "#/components/schemas/Category"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -360,9 +375,14 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Category deleted successfully."
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Category deleted successfully."
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -469,11 +489,16 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "products": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/components/schemas/Product"
-                                            }
+                                        "data": {
+                                            "properties": {
+                                                "products": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Product"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -541,9 +566,14 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Product added successfully."
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Product added successfully."
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -662,11 +692,16 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "products": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/components/schemas/Product"
-                                            }
+                                        "data": {
+                                            "properties": {
+                                                "products": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Product"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -772,12 +807,17 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Product updated successfully."
-                                        },
-                                        "product": {
-                                            "$ref": "#/components/schemas/Product"
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Product updated successfully."
+                                                },
+                                                "product": {
+                                                    "$ref": "#/components/schemas/Product"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -918,9 +958,14 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Product deleted successfully."
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Product deleted successfully."
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1038,12 +1083,17 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Account created successfully."
-                                        },
-                                        "user": {
-                                            "$ref": "#/components/schemas/User"
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Account created successfully."
+                                                },
+                                                "user": {
+                                                    "$ref": "#/components/schemas/User"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1120,16 +1170,21 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Login successful."
-                                        },
-                                        "api_key": {
-                                            "type": "string",
-                                            "example": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..."
-                                        },
-                                        "user": {
-                                            "$ref": "#/components/schemas/User"
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Login successful."
+                                                },
+                                                "api_key": {
+                                                    "type": "string",
+                                                    "example": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..."
+                                                },
+                                                "user": {
+                                                    "$ref": "#/components/schemas/User"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1183,8 +1238,13 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "user": {
-                                            "$ref": "#/components/schemas/User"
+                                        "data": {
+                                            "properties": {
+                                                "user": {
+                                                    "$ref": "#/components/schemas/User"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1276,12 +1336,17 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Profile updated successfully."
-                                        },
-                                        "user": {
-                                            "$ref": "#/components/schemas/User"
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Profile updated successfully."
+                                                },
+                                                "user": {
+                                                    "$ref": "#/components/schemas/User"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1410,9 +1475,14 @@
                                             "type": "string",
                                             "example": "success"
                                         },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Account deleted successfully."
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Account deleted successfully."
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"

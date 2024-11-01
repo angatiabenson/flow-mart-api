@@ -31,7 +31,11 @@ class CategoryControllerAnnotations
      *         description="Category created successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Category created successfully.")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Category created successfully."),
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -73,9 +77,13 @@ class CategoryControllerAnnotations
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
      *             @OA\Property(
-     *                 property="categories",
-     *                 type="array",
-     *                 @OA\Items(ref="#/components/schemas/Category")
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(
+     *                     property="categories",
+     *                     type="array",
+     *                     @OA\Items(ref="#/components/schemas/Category")
+     *                 )
      *             )
      *         )
      *     ),
@@ -123,10 +131,14 @@ class CategoryControllerAnnotations
      *         description="Category updated successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Category updated successfully."),
      *             @OA\Property(
-     *                 property="category",
-     *                 ref="#/components/schemas/Category"
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Category updated successfully."),
+     *                 @OA\Property(
+     *                     property="category",
+     *                     ref="#/components/schemas/Category"
+     *                 )
      *             )
      *         )
      *     ),
@@ -196,7 +208,11 @@ class CategoryControllerAnnotations
      *         description="Category deleted successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Category deleted successfully.")
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 @OA\Property(property="message", type="string", example="Category deleted successfully.")
+     *             )
      *         )
      *     ),
      *     @OA\Response(

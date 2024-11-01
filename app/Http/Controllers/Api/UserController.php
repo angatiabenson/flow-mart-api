@@ -48,8 +48,10 @@ class UserController extends Controller
         // Return success response
         return response()->json([
             'status' => 'success',
-            'message' => 'Account created successfully.',
-            'user' => $user,
+            'data' => [
+                'message' => 'Account created successfully.',
+                'user' => $user,
+            ]
         ], 201); // HTTP 201 Created
     }
 
@@ -87,9 +89,11 @@ class UserController extends Controller
             // Return success response
             return response()->json([
                 'status' => 'success',
-                'message' => 'Login successful.',
-                'api_key' => $plainTextToken,
-                'user' => $user
+                'data' => [
+                    'message' => 'Login successful.',
+                    'api_key' => $plainTextToken,
+                    'user' => $user
+                ]
             ], 200);
         }
 
@@ -134,12 +138,14 @@ class UserController extends Controller
         // Return the user details in the desired format
         return response()->json([
             'status' => 'success',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'created_at' => $user->created_at->toDateTimeString(),
+            'data' => [
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'phone' => $user->phone,
+                    'created_at' => $user->created_at->toDateTimeString(),
+                ]
             ]
         ], 200);
     }
@@ -217,13 +223,15 @@ class UserController extends Controller
         // Return success response with updated user data
         return response()->json([
             'status' => 'success',
-            'message' => 'Profile updated successfully.',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'updated_at' => $user->updated_at->toDateTimeString(),
+            'data' => [
+                'message' => 'Profile updated successfully.',
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'phone' => $user->phone,
+                    'updated_at' => $user->updated_at->toDateTimeString(),
+                ]
             ]
         ], 200);
     }
@@ -267,7 +275,9 @@ class UserController extends Controller
         // Return success response
         return response()->json([
             'status' => 'success',
-            'message' => 'Account deleted successfully.'
+            'data' => [
+                'message' => 'Account deleted successfully.'
+            ]
         ], 200);
     }
 }
