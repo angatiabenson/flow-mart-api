@@ -139,13 +139,7 @@ class UserController extends Controller
         return response()->json([
             'status' => 'success',
             'data' => [
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'phone' => $user->phone,
-                    'created_at' => $user->created_at->toDateTimeString(),
-                ]
+                'user' => $user
             ]
         ], 200);
     }
@@ -225,13 +219,7 @@ class UserController extends Controller
             'status' => 'success',
             'data' => [
                 'message' => 'Profile updated successfully.',
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'phone' => $user->phone,
-                    'updated_at' => $user->updated_at->toDateTimeString(),
-                ]
+                'user' => $user
             ]
         ], 200);
     }
